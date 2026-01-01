@@ -334,7 +334,10 @@ a:hover{ opacity:.9; }
   color: rgba(255,255,255,.85);
   font-weight: 700;
 }
-
+.logo {
+  height: 40px;
+  width: auto;
+}
 .content h2{
   margin: 0 0 10px;
   font-size: 22px;
