@@ -3,87 +3,193 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Über uns | Boden & Stil Haidari</title>
-  <meta name="description" content="Über Boden & Stil Haidari. Handwerk mit Erfahrung, Verantwortung und sauberer Ausführung.">
+  <title>Über uns | Boden & Stil Haidari – Bodenleger Würzburg</title>
+  <meta name="description" content="Über Boden & Stil Haidari. Handwerk mit über 10 Jahren Erfahrung, Verantwortung und sauberer Ausführung. Mohammad Haidari, Bodenleger aus Würzburg.">
   <meta name="theme-color" content="#6B3F1D">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <a class="skip" href="#main">Zum Inhalt</a>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <a class="wa-float" href="https://wa.me/491605639398" target="_blank" rel="noopener" aria-label="WhatsApp schreiben">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <div class="nav-overlay" id="navOverlay"></div>
 
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">
-        <div class="brand-name">Boden & Stil Haidari</div>
-        <div class="brand-sub">Über uns</div>
-      </div>
-      <nav class="nav">
+      <a href="index.html" class="brand">
+        <div class="brand-name">Boden &amp; Stil Haidari</div>
+        <div class="brand-sub">Würzburg · Umgebung bis 50 km</div>
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Hauptnavigation">
         <a href="index.html">Start</a>
-        <a href="ueber-uns.html" class="nav-cta">Über uns</a>
-        <a href="index.html#kontakt">Kontakt</a>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="ueber-uns.html" class="active">Über uns</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html" class="nav-cta">Kontakt</a>
       </nav>
+      <button class="nav-burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main id="main">
-    <section class="page-hero about-hero">
-      <div class="page-hero-overlay">
-        <div class="container">
+
+    <div class="page-hero">
+      <div class="page-hero-img" style="background-image: url('assets/ueber-uns-innenraum.jpg');"></div>
+      <div class="container">
+        <div class="page-hero-content">
+          <p class="eyebrow">Seit über 10 Jahren</p>
           <h1>Über uns</h1>
-          <p>Handwerk mit Erfahrung und Verantwortung</p>
+          <p>Handwerk mit Erfahrung, Sorgfalt und Verantwortung</p>
         </div>
       </div>
-    </section>
+    </div>
 
     <section class="section">
-      <div class="container content">
-        <h2>Handwerk mit Erfahrung und einem klaren Anspruch</h2>
-        <p>
-          Boden & Stil Haidari steht für saubere handwerkliche Arbeit, klare Absprachen und Ergebnisse, die im Alltag bestehen.
-          Mit über 10 Jahren Erfahrung im Bodenhandwerk wissen wir, worauf es ankommt – nicht nur beim Verlegen selbst,
-          sondern bereits bei der Vorbereitung und Planung.
-        </p>
-        <p>
-          Ein Boden ist täglich in Benutzung. Genau deshalb legen wir Wert darauf, dass Aufbau, Material und Ausführung zusammenpassen.
-          Unsere Arbeit soll nicht nur beim ersten Eindruck überzeugen, sondern auch langfristig zuverlässig funktionieren.
-        </p>
+      <div class="container">
+        <div class="content">
 
-        <h2>Erfahrung aus der Praxis</h2>
-        <p>
-          Unsere Erfahrung basiert auf jahrelanger praktischer Arbeit im Bodenhandwerk.
-          Wir kennen unterschiedlichste Untergründe, Wohnsituationen und Anforderungen und empfehlen nur Lösungen,
-          die sich langfristig bewähren.
-        </p>
+          <h2>Handwerk mit Erfahrung und klarem Anspruch</h2>
+          <p>
+            Boden &amp; Stil Haidari steht für saubere handwerkliche Arbeit, klare Absprachen und Ergebnisse, die im Alltag bestehen.
+            Mit über 10 Jahren Erfahrung im Bodenhandwerk wissen wir, worauf es ankommt – nicht nur beim Verlegen selbst,
+            sondern bereits bei der Vorbereitung und Planung.
+          </p>
+          <p>
+            Ein Boden ist täglich in Benutzung. Genau deshalb legen wir Wert darauf, dass Aufbau, Material und Ausführung zusammenpassen.
+            Unsere Arbeit soll nicht nur beim ersten Eindruck überzeugen, sondern auch langfristig zuverlässig funktionieren.
+          </p>
 
-        <h2>Unsere Arbeitsweise</h2>
-        <p>
-          Wir arbeiten strukturiert, sauber und mit einem hohen Anspruch an Details.
-          Jeder Arbeitsschritt wird bewusst ausgeführt – vom Untergrund bis zum letzten Übergang.
-        </p>
+          <h2>Erfahrung aus der Praxis</h2>
+          <p>
+            Unsere Erfahrung basiert auf jahrelanger praktischer Arbeit im Bodenhandwerk.
+            Wir kennen unterschiedlichste Untergründe, Wohnsituationen und Anforderungen.
+            Aus dieser Praxis heraus empfehlen wir nur Lösungen, die sich langfristig bewähren – keine Experimente, kein Overkill.
+          </p>
+          <p>
+            Heute arbeiten wir selbstständig mit einem festen Kundenstamm, der uns oft weiterempfiehlt. Das ist für uns
+            der beste Beweis, dass unsere Arbeit überzeugt.
+          </p>
 
-        <h2>Beratung vor Ort</h2>
-        <p>
-          Jede Situation ist anders. Deshalb beraten wir direkt vor Ort,
-          nehmen uns Zeit und erklären verständlich, was sinnvoll ist.
-          Ehrlichkeit gehört für uns genauso zum Handwerk wie saubere Arbeit.
-        </p>
+          <h2>Unsere Arbeitsweise</h2>
+          <p>
+            Wir arbeiten strukturiert, sauber und mit einem hohen Anspruch an Details.
+            Jeder Arbeitsschritt wird bewusst ausgeführt – vom Untergrund bis zum letzten Übergang.
+            Wir räumen auf, wenn wir fertig sind, und übergeben einen Boden, auf den Sie sofort stolz sein können.
+          </p>
+
+          <h2>Beratung vor Ort</h2>
+          <p>
+            Jede Situation ist anders. Deshalb beraten wir direkt vor Ort,
+            nehmen uns Zeit und erklären verständlich, was sinnvoll ist und was nicht.
+            Ehrlichkeit gehört für uns genauso zum Handwerk wie saubere Arbeit.
+            Die Beratung ist für Sie kostenfrei und unverbindlich.
+          </p>
+
+          <h2>Servicegebiet</h2>
+          <p>
+            Wir sind in Würzburg und im gesamten Umkreis von bis zu 50 km tätig.
+            Dazu gehören unter anderem Kitzingen, Ochsenfurt, Bad Mergentheim, Schweinfurt,
+            Marktheidenfeld und die umliegenden Gemeinden.
+          </p>
+
+        </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div>
-          <div class="footer-name">Boden & Stil Haidari</div>
-          <div class="footer-sub">Würzburg · Umgebung bis 50 km</div>
+    <!-- VALUE CARDS -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Wofür wir stehen</p>
+          <h2>Unsere Werte</h2>
         </div>
-        <div class="footer-links">
+        <div class="cards cards-3">
+          <article class="card">
+            <div class="card-icon">🎯</div>
+            <h3>Präzision</h3>
+            <p>Jede Fuge, jeder Übergang, jede Sockelleiste – sauber ausgeführt. Wir arbeiten so, als wäre es unser eigener Boden.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🤝</div>
+            <h3>Zuverlässigkeit</h3>
+            <p>Wir halten Termine ein, kommunizieren offen und überraschungsfreie Kosten. Was wir versprechen, das halten wir.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">💡</div>
+            <h3>Ehrlichkeit</h3>
+            <p>Wir empfehlen nur, was wirklich passt – auch wenn das bedeutet, dass weniger Aufwand die bessere Lösung ist.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="highlight-box">
+          <h2>Lassen Sie uns reden – kostenlos &amp; unverbindlich</h2>
+          <p>Wir kommen zu Ihnen, schauen uns Ihren Boden an und geben Ihnen eine ehrliche Einschätzung.</p>
+          <div class="btn-group">
+            <a href="tel:+491605639398" class="btn btn-ghost">📞 +49 160 5639398</a>
+            <a href="kontakt.html" class="btn" style="background:#fff; color: var(--brownDark);">Kontaktformular →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-name">Boden &amp; Stil Haidari</div>
+          <div class="footer-sub">Bodenleger in Würzburg &amp; Umgebung bis 50 km</div>
+          <p>Professionelle Bodenarbeiten mit über 10 Jahren Erfahrung.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
           <a href="index.html">Startseite</a>
+          <a href="leistungen.html">Leistungen</a>
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="faq.html">FAQ</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
         </div>
       </div>
-    </footer>
-  </main>
+      <div class="footer-bottom">
+        <p>© 2024 Boden &amp; Stil Haidari · Mohammad Haidari · Würzburg</p>
+        <div class="footer-legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var burger = document.getElementById('navBurger');
+      var nav = document.getElementById('mainNav');
+      var overlay = document.getElementById('navOverlay');
+      function close() { nav.classList.remove('nav-open'); overlay.classList.remove('show'); burger.setAttribute('aria-expanded', 'false'); }
+      burger.addEventListener('click', function () { var open = nav.classList.toggle('nav-open'); overlay.classList.toggle('show', open); burger.setAttribute('aria-expanded', open); });
+      overlay.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+  </script>
 </body>
 </html>
