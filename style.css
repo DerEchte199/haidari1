@@ -66,11 +66,13 @@ a:hover { opacity: .82; }
 .topbar {
   position: sticky;
   top: 0;
+  z-index: 20;
   background: #F5EDE3;
   border-bottom: 1px solid var(--line);
-  /* Kein z-index, kein backdrop-filter → kein Stacking Context.
-     Das erlaubt dem Nav-Panel (position:fixed, z-index:400) im
-     Root-Stacking-Context über dem Overlay (z-index:280) zu liegen. */
+  /* z-index:20 ist jetzt sicher, weil <nav> ein Geschwisterelement
+     von <header> ist (außerhalb des Stacking Context des Topbars).
+     Auf Desktop wird die Nav als position:fixed mit z-index:25 über
+     den Topbar gelegt. Auf Mobile: z-index:400 im Root-Context. */
 }
 .topbar-inner {
   display: flex;
@@ -893,6 +895,27 @@ details[open].faq-item summary::after { transform: rotate(45deg); }
 .footer-legal a:hover { color: #fff; opacity: 1; }
 
 /* ===== RESPONSIVE ===== */
+
+/* Desktop: Nav ist außerhalb des <header> im DOM, aber visuell
+   über den rechten Teil des Topbars gelegt (position:fixed). */
+@media (min-width: 769px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: max(4vw, calc((100vw - 1200px) / 2));
+    z-index: 25;
+    pointer-events: none; /* Klicks auf leere Flächen hindurchlassen */
+    background: transparent;
+  }
+  .nav a { pointer-events: all; }
+}
+
 @media (max-width: 1024px) {
   .stats-grid { grid-template-columns: repeat(4, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
