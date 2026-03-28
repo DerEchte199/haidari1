@@ -66,7 +66,7 @@ a:hover { opacity: .82; }
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 300;
   background: rgba(245,237,227,.95);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -152,7 +152,7 @@ a:hover { opacity: .82; }
   width: min(300px, 82vw);
   background: var(--bg);
   border-left: 1px solid var(--line);
-  z-index: 200;
+  z-index: 400;
   padding: 80px 20px 40px;
   box-shadow: -4px 0 40px rgba(0,0,0,.14);
   gap: 4px;
@@ -171,7 +171,7 @@ a:hover { opacity: .82; }
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,.38);
-  z-index: 150;
+  z-index: 280;
   backdrop-filter: blur(2px);
 }
 .nav-overlay.show { display: block; }
@@ -576,7 +576,7 @@ a:hover { opacity: .82; }
   color: var(--text);
   letter-spacing: .1px;
 }
-.form-group input,
+.form-group input:not([type="checkbox"]),
 .form-group select,
 .form-group textarea {
   padding: 12px 14px;
@@ -589,13 +589,22 @@ a:hover { opacity: .82; }
   transition: border-color .2s, box-shadow .2s;
   width: 100%;
   appearance: none;
+  -webkit-appearance: none;
 }
-.form-group input:focus,
+.form-group input:not([type="checkbox"]):focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--brown);
   box-shadow: 0 0 0 3px rgba(107,63,29,.10);
+}
+.form-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--brown);
+  margin: 2px 0 0;
 }
 .form-group textarea { resize: vertical; min-height: 130px; }
 .form-row {
