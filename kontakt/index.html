@@ -7,7 +7,7 @@
   <meta name="description" content="Kontaktieren Sie Boden & Stil Haidari in Würzburg. Kostenlose Beratung vor Ort. Telefon, WhatsApp oder Kontaktformular – wir antworten schnell.">
   <meta name="theme-color" content="#24150d">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' mailto:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,37 +75,45 @@
               <p class="lead">Füllen Sie das Formular aus und wir melden uns so schnell wie möglich bei Ihnen.</p>
             </div>
 
+            <div class="form-alert form-alert-success" id="formSuccess" hidden>
+              Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns so schnell wie möglich bei Ihnen.
+            </div>
+
             <form
-              action="mailto:support@bodenstil-haidari.de"
+              action="https://formsubmit.co/support@bodenstil-haidari.de"
               method="POST"
-              enctype="text/plain"
-              novalidate
+              accept-charset="UTF-8"
               aria-label="Kontaktformular"
             >
+              <input type="hidden" name="_subject" value="Neue Anfrage über bodenstil-haidari.de">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="https://www.bodenstil-haidari.de/kontakt/?success=1">
+              <input type="hidden" name="_honey">
+
               <div class="form-row">
                 <div class="form-group">
                   <label for="vorname">Vorname *</label>
-                  <input type="text" id="vorname" name="Vorname" required placeholder="Max" autocomplete="given-name">
+                  <input type="text" id="vorname" name="vorname" required placeholder="Max" autocomplete="given-name">
                 </div>
                 <div class="form-group">
                   <label for="nachname">Nachname *</label>
-                  <input type="text" id="nachname" name="Nachname" required placeholder="Mustermann" autocomplete="family-name">
+                  <input type="text" id="nachname" name="nachname" required placeholder="Mustermann" autocomplete="family-name">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="email">E-Mail-Adresse *</label>
-                <input type="email" id="email" name="E-Mail" required placeholder="max@beispiel.de" autocomplete="email">
+                <input type="email" id="email" name="email" required placeholder="max@beispiel.de" autocomplete="email">
               </div>
 
               <div class="form-group">
                 <label for="telefon">Telefon / WhatsApp</label>
-                <input type="tel" id="telefon" name="Telefon" placeholder="+49 160 ..." autocomplete="tel">
+                <input type="tel" id="telefon" name="telefon" placeholder="+49 160 ..." autocomplete="tel">
               </div>
 
               <div class="form-group">
                 <label for="leistung">Gewünschte Leistung</label>
-                <select id="leistung" name="Leistung">
+                <select id="leistung" name="leistung">
                   <option value="" disabled selected>Bitte wählen …</option>
                   <option value="Laminat verlegen">Laminat verlegen</option>
                   <option value="Vinyl / LVT verlegen">Vinyl / LVT verlegen</option>
@@ -122,17 +130,17 @@
 
               <div class="form-group">
                 <label for="flaeche">Ungefähre Fläche (m²)</label>
-                <input type="text" id="flaeche" name="Flaeche" placeholder="z.B. 30 m²">
+                <input type="text" id="flaeche" name="flaeche" placeholder="z.B. 30 m²">
               </div>
 
               <div class="form-group">
                 <label for="nachricht">Ihre Nachricht *</label>
-                <textarea id="nachricht" name="Nachricht" required placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihr Anliegen …"></textarea>
+                <textarea id="nachricht" name="nachricht" required placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihr Anliegen …"></textarea>
               </div>
 
               <div class="form-group">
                 <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-weight: 500; font-size: 13.5px; color: var(--muted);">
-                  <input type="checkbox" name="Datenschutz" required style="margin-top: 2px; width: auto; flex-shrink: 0;">
+                  <input type="checkbox" name="datenschutz" required style="margin-top: 2px; width: auto; flex-shrink: 0;">
                   Ich habe die <a href="/datenschutz/" target="_blank" style="margin: 0 3px;">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. *
                 </label>
               </div>
@@ -143,6 +151,10 @@
 
               <p style="margin-top: 12px; font-size: 13px; color: var(--muted);">
                 * Pflichtfelder. Ihre Daten werden vertraulich behandelt und nur zur Bearbeitung Ihrer Anfrage verwendet.
+              </p>
+
+              <p class="form-helper">
+                Beim ersten Test kann FormSubmit eine Bestätigungs-E-Mail an <strong>support@bodenstil-haidari.de</strong> schicken. Erst nach dieser einmaligen Bestätigung werden Anfragen automatisch zugestellt.
               </p>
             </form>
           </div>
@@ -226,10 +238,15 @@
       var burger = document.getElementById('navBurger');
       var nav = document.getElementById('mainNav');
       var overlay = document.getElementById('navOverlay');
+      var success = document.getElementById('formSuccess');
+      var search = new URLSearchParams(window.location.search);
       function close() { nav.classList.remove('nav-open'); overlay.classList.remove('show'); burger.setAttribute('aria-expanded', 'false'); }
       burger.addEventListener('click', function () { var open = nav.classList.toggle('nav-open'); overlay.classList.toggle('show', open); burger.setAttribute('aria-expanded', open); });
       overlay.addEventListener('click', close);
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+      if (success && search.get('success') === '1') {
+        success.hidden = false;
+      }
     })();
   </script>
 </body>
