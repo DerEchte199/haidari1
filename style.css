@@ -352,6 +352,18 @@ button {
   background: rgba(111, 69, 36, 0.08);
 }
 
+.btn-light {
+  color: var(--brown-dark);
+  background: var(--white);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 16px 30px rgba(20, 12, 7, 0.1);
+}
+
+.btn-light:hover {
+  color: var(--brown-dark);
+  background: #f7f0e7;
+}
+
 .text-link {
   display: inline-flex;
   align-items: center;
