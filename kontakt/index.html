@@ -7,7 +7,7 @@
   <meta name="description" content="Kontaktieren Sie Boden & Stil Haidari in WÃ¼rzburg. Kostenlose Beratung vor Ort. Telefon, WhatsApp oder Kontaktformular â€“ wir antworten schnell.">
   <meta name="theme-color" content="#24150d">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' mailto:; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="stylesheet" href="../style.css">
@@ -73,20 +73,16 @@
             </div>
 
             <div class="form-alert form-alert-success" id="formSuccess" hidden>
-              Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns so schnell wie mÃ¶glich bei Ihnen.
+              Ihr E-Mail-Programm wurde geöffnet. Bitte prüfen und senden Sie die Nachricht dort ab.
             </div>
 
             <form
-              action="https://formsubmit.co/support@bodenstil-haidari.de"
-              method="POST"
+              id="contactForm"
+              action="mailto:support@bodenstil-haidari.de"
+              method="GET"
               accept-charset="UTF-8"
               aria-label="Kontaktformular"
             >
-              <input type="hidden" name="_subject" value="Neue Anfrage Ã¼ber bodenstil-haidari.de">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_next" value="https://www.bodenstil-haidari.de/kontakt/?success=1">
-              <input type="hidden" name="_honey">
-
               <div class="form-row">
                 <div class="form-group">
                   <label for="vorname">Vorname *</label>
@@ -232,13 +228,35 @@
       var nav = document.getElementById('mainNav');
       var overlay = document.getElementById('navOverlay');
       var success = document.getElementById('formSuccess');
-      var search = new URLSearchParams(window.location.search);
+      var form = document.getElementById('contactForm');
       function close() { nav.classList.remove('nav-open'); overlay.classList.remove('show'); burger.setAttribute('aria-expanded', 'false'); }
       burger.addEventListener('click', function () { var open = nav.classList.toggle('nav-open'); overlay.classList.toggle('show', open); burger.setAttribute('aria-expanded', open); });
       overlay.addEventListener('click', close);
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-      if (success && search.get('success') === '1') {
-        success.hidden = false;
+      if (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          if (!form.reportValidity()) return;
+
+          var data = new FormData(form);
+          var subject = 'Neue Anfrage über bodenstil-haidari.de';
+          var body = [
+            'Neue Anfrage über bodenstil-haidari.de',
+            '',
+            'Vorname: ' + (data.get('vorname') || ''),
+            'Nachname: ' + (data.get('nachname') || ''),
+            'E-Mail: ' + (data.get('email') || ''),
+            'Telefon / WhatsApp: ' + (data.get('telefon') || ''),
+            'Gewünschte Leistung: ' + (data.get('leistung') || ''),
+            'Ungefähre Fläche: ' + (data.get('flaeche') || ''),
+            '',
+            'Nachricht:',
+            data.get('nachricht') || ''
+          ].join('\n');
+
+          window.location.href = 'mailto:support@bodenstil-haidari.de?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+          if (success) success.hidden = false;
+        });
       }
     })();
   </script>
